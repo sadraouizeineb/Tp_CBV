@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Blog Post</title>
+    <link rel="stylesheet" href="https://path/to/your/css/styles.css">  <!-- inclure le CSS si besoin -->
+</head>
+<body>
+    <h1>Create Blog Post</h1>
+    <form method="post">
+        {% csrf_token %}
+        
+        <!-- Affichage personnalisé des champs du formulaire -->
+        <div>
+            <label for="id_title">Title:</label>
+            {{ form.title }}
+        </div>
+        <div>
+            <label for="id_content">Content:</label>
+            {{ form.content }}
+        </div>
+        <div>
+            <label for="id_author">Author:</label>
+            {{ form.author }}
+        </div>
+        <div>
+            <label for="id_created_on">Created on:</label>
+            {{ form.created_on }}
+        </div>
+
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'Posts:listhtml' %}">Back to Blog List</a>
+</body>
+</html>
